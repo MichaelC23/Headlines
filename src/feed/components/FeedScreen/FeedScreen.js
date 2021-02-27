@@ -18,7 +18,6 @@ import styles from './styles';
 export default function FeedScreen({ feed: { entries } }) {
   function renderEntry({ item }) {
     if (item) {
-      console.log('renderEntry', item.title);
       return <Entry data={item} />;
     }
     return null;
@@ -32,6 +31,7 @@ export default function FeedScreen({ feed: { entries } }) {
         <FlatList
           data={entries}
           renderItem={renderEntry}
+          onEndReachedThreshold={0}
           keyExtractor={(entry, index) => `item-${index}`}
           horizontal={false}
           showsHorizontalScrollIndicator={false}

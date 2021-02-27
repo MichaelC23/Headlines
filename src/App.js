@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { SafeAreaView, Text, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import FeedScreen from 'src/feed/components/FeedScreen';
 import store from 'src/store';
