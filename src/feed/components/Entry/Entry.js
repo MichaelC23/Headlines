@@ -25,7 +25,9 @@ export default function Entry({ data: { author, title, link, thumbnail } }) {
         style={styles.contentWrapper}
         onPress={() => Linking.openURL(link)}>
         <Text style={styles.contentTitle}>{title}</Text>
-        <Image style={styles.stretch} source={{ uri: thumbnail }} />
+        {thumbnail ? (
+          <Image style={styles.stretch} source={{ uri: thumbnail }} />
+        ) : null}
       </TouchableOpacity>
     </View>
   );

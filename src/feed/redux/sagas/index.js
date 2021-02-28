@@ -15,7 +15,7 @@ import feedParseCallback from 'src/feed/utils/feedParseCallback';
  */
 function* fetchFeed(store) {
   console.log('~ Feed | fetchFeed');
-  const response = yield fetch('https://www.reddit.com/r/MadeMeSmile.rss');
+  const response = yield fetch('https://www.reddit.com/hot.rss');
   const text = yield response.text();
   yield parseString(text, feedParseCallback(store));
 }

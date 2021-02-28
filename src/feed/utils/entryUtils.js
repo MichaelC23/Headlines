@@ -19,7 +19,9 @@ export function convertFeedToEntries(feed) {
       name: element.author[FIRST].name[FIRST],
       uri: element.author[FIRST].uri[FIRST],
     };
-    entry.thumbnail = element['media:thumbnail'][FIRST].$.url;
+    if (element['media:thumbnail']) {
+      entry.thumbnail = element['media:thumbnail'][FIRST].$.url;
+    }
     entry.link = element.link[FIRST].$.href;
     entry.date = element.updated[FIRST];
     entry.title = element.title[FIRST];
