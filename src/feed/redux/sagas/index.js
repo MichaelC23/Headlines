@@ -3,10 +3,10 @@
  * @module src/feed/redux/sagas
  */
 
-import { all } from 'redux-saga/effects';
-import { parseString } from 'react-native-xml2js';
+import { all, put } from 'redux-saga/effects';
 
-import feedParseCallback from 'src/feed/utils/feedParseCallback';
+import { updateFeed } from 'src/feed/redux/actions';
+import { BASE_URL } from 'src/feed/constants';
 
 /**
  * Fetch feed saga
@@ -15,9 +15,9 @@ import feedParseCallback from 'src/feed/utils/feedParseCallback';
  */
 function* fetchFeed(store) {
   console.log('~ Feed | fetchFeed');
-  const response = yield fetch('https://www.reddit.com/hot.rss');
-  const text = yield response.text();
-  yield parseString(text, feedParseCallback(store));
+  const response = yield fetch(`${BASE_URL}/hot.json`);
+  const json = yield response.json();
+  yield put(updateFeed(json.data.children));
 }
 
 /**

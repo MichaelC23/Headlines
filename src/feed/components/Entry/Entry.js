@@ -13,7 +13,7 @@ import styles from './styles';
  * @param {Object} data entry data.
  * @returns {Object} View.
  */
-export default function Entry({ data: { author, title, link, thumbnail } }) {
+export default function Entry({ data: { author, title, link, imageSource } }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -25,8 +25,8 @@ export default function Entry({ data: { author, title, link, thumbnail } }) {
         style={styles.contentWrapper}
         onPress={() => Linking.openURL(link)}>
         <Text style={styles.contentTitle}>{title}</Text>
-        {thumbnail ? (
-          <Image style={styles.stretch} source={{ uri: thumbnail }} />
+        {imageSource ? (
+          <Image style={styles.stretch} source={{ uri: imageSource }} />
         ) : null}
       </TouchableOpacity>
     </View>

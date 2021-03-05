@@ -3,7 +3,7 @@
  * @module src/feed/utils
  */
 
-import { FIRST } from 'src/feed/constants';
+import { FIRST, USER_URL, BASE_URL } from 'src/feed/constants';
 
 /**
  * Feed to entries converter.
@@ -13,19 +13,44 @@ import { FIRST } from 'src/feed/constants';
  */
 export function convertFeedToEntries(feed) {
   const entries = [];
-  feed.forEach(element => {
+  feed.forEach(({ data }) => {
     const entry = {};
-    entry.author = {
-      name: element.author[FIRST].name[FIRST],
-      uri: element.author[FIRST].uri[FIRST],
-    };
-    if (element['media:thumbnail']) {
-      entry.thumbnail = element['media:thumbnail'][FIRST].$.url;
+    entry.author = constructAuthor();
+    if (data.preview) {
+      entry.imageSource = constructImageSource(
+        data.preview.images[FIRST].source.url,
+      );
     }
-    entry.link = element.link[FIRST].$.href;
-    entry.date = element.updated[FIRST];
-    entry.title = element.title[FIRST];
+    entry.link = `${BASE_URL}${data.permalink}`;
+    entry.title = data.title;
     entries.push(entry);
   });
   return entries;
+}
+
+/**
+ * Constructs author field for entry.
+ * @function constructAuthor
+ * @param {Object} author user id.
+ * @returns {Object} returns an object with the users name and uri.
+ */
+function constructAuthor(author) {
+  return {
+    name: `u/${author}`,
+    uri: `${USER_URL}/${author}`,
+  };
+}
+
+/**
+ * Constructs image source.
+ * @function constructImageSource
+ * @param {Object} imageSource the unescaped uri.
+ * @returns {Object} returns an encoded image.
+ */
+function constructImageSource(imageSource) {
+  const raw = imageSource;
+  let encoded = raw.replace('amp;s', 's');
+  let doubleEncoded = encoded.replace('amp;', '');
+  let tripleEncoded = doubleEncoded.replace('amp;', '');
+  return tripleEncoded;
 }
