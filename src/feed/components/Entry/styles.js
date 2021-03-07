@@ -23,10 +23,10 @@ export default StyleSheet.create({
   },
   content: {},
   contentWrapper: {
-    paddingHorizontal: 10,
     paddingBottom: 10,
   },
   contentTitle: {
+    paddingHorizontal: 10,
     textAlign: 'left',
     fontSize: 16,
     fontFamily: FONT.regular,

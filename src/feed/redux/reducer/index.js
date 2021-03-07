@@ -5,11 +5,19 @@
 
 import produce from 'immer';
 
-import { UPDATE_FEED } from 'src/feed/constants';
+import {
+  UPDATE_FEED,
+  SET_CATEGORY,
+  SET_LOADING,
+  FETCH_FEED,
+  defaultCategories,
+} from 'src/feed/constants';
 import { convertFeedToEntries } from 'src/feed/utils/entryUtils';
 
 const initialState = {
   entries: [],
+  category: defaultCategories.HOT,
+  loading: false,
 };
 
 /**
@@ -23,5 +31,13 @@ export default produce((draftState, action) => {
   switch (action.type) {
     case UPDATE_FEED:
       draftState.entries = convertFeedToEntries(action.body);
+      draftState.loading = false;
+      break;
+    case SET_CATEGORY:
+      draftState.category = action.body.category;
+      break;
+    case SET_LOADING:
+    case FETCH_FEED:
+      draftState.loading = action.body.loading;
   }
 }, initialState);

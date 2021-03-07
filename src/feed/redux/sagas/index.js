@@ -3,10 +3,10 @@
  * @module src/feed/redux/sagas
  */
 
-import { all, put } from 'redux-saga/effects';
+import { all, put, takeLatest } from 'redux-saga/effects';
 
-import { updateFeed } from 'src/feed/redux/actions';
-import { BASE_URL } from 'src/feed/constants';
+import { updateFeed, setLoading } from 'src/feed/redux/actions';
+import { BASE_URL, SET_CATEGORY, FETCH_FEED } from 'src/feed/constants';
 
 /**
  * Fetch feed saga
@@ -15,7 +15,9 @@ import { BASE_URL } from 'src/feed/constants';
  */
 function* fetchFeed(store) {
   console.log('~ Feed | fetchFeed');
-  const response = yield fetch(`${BASE_URL}/hot.json`);
+  yield put(setLoading(true));
+  const { category } = store.getState().feed;
+  const response = yield fetch(`${BASE_URL}/${category}.json`);
   const json = yield response.json();
   yield put(updateFeed(json.data.children));
 }
@@ -26,5 +28,8 @@ function* fetchFeed(store) {
  * @param {Object} store redux store.
  */
 export default function* rootSaga(store) {
-  yield all([fetchFeed(store)]);
+  yield all([
+    fetchFeed(store),
+    takeLatest([SET_CATEGORY, FETCH_FEED], fetchFeed.bind(null, store)),
+  ]);
 }

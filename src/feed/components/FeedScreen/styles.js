@@ -1,5 +1,5 @@
 /**
- * Feed Screen styles
+ * FeedScreen styles
  * @module src/feed/components/FeedScreen
  */
 

@@ -1,5 +1,5 @@
 /**
- * Feed Screen index
+ * FeedScreen index
  * @module src/feed/components/FeedScreen
  */
-export { default } from './FeedScreenContainer';
+export { default } from './FeedScreen';
