@@ -1,5 +1,5 @@
 /**
- * Entry view component
+ * Entry component
  * @module src/feed/components/Entry
  */
 import React from 'react';
@@ -22,7 +22,7 @@ export default function Entry({ data: { author, title, link, imageSource } }) {
         <Text style={styles.authorTitle}>{author.name}</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.contentWrapper}
+        style={styles.contentWrappers}
         onPress={() => Linking.openURL(link)}>
         <Text style={styles.contentTitle}>{title}</Text>
         {imageSource ? (

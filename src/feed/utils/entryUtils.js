@@ -15,7 +15,7 @@ export function convertFeedToEntries(feed) {
   const entries = [];
   feed.forEach(({ data }) => {
     const entry = {};
-    entry.author = constructAuthor();
+    entry.author = constructAuthor(data.author);
     if (data.preview) {
       entry.imageSource = constructImageSource(
         data.preview.images[FIRST].source.url,
