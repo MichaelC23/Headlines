@@ -15,6 +15,8 @@ export default compose(
     state => ({
       category: state.feed.category,
       defaultCategories: Object.values(defaultCategories),
+      textPrimary: { color: state.theme.palette.textPrimary },
+      textSecondary: { color: state.theme.palette.textSecondary },
     }),
     { setCategory },
     (stateProps, dispatchProps, parentProps) => ({

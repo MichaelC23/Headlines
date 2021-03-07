@@ -19,6 +19,8 @@ export default function FeedSelector({
   category,
   defaultCategories,
   setCategory,
+  textPrimary,
+  textSecondary,
 }) {
   return (
     <View style={styles.container}>
@@ -32,7 +34,10 @@ export default function FeedSelector({
           <Text
             style={[
               styles.tabText,
-              category === defaultCategory ? styles.tabSelected : null,
+              textSecondary,
+              category === defaultCategory
+                ? [styles.tabSelected, textPrimary]
+                : null,
             ]}>
             {defaultCategory}
           </Text>

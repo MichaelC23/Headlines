@@ -4,7 +4,7 @@
  */
 
 import { StyleSheet } from 'react-native';
-import { FONT, COLOR } from 'src/common/styles';
+import { FONT } from 'src/common/styles';
 
 export default StyleSheet.create({
   container: {
@@ -19,7 +19,6 @@ export default StyleSheet.create({
     textAlign: 'left',
     fontSize: 18,
     fontFamily: FONT.medium,
-    color: COLOR.textPrimary,
   },
   content: {},
   contentWrapper: {
@@ -30,7 +29,6 @@ export default StyleSheet.create({
     textAlign: 'left',
     fontSize: 16,
     fontFamily: FONT.regular,
-    color: COLOR.textSecondary,
     paddingBottom: 10,
   },
   stretch: {
