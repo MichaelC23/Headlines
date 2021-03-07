@@ -4,12 +4,11 @@
  */
 
 import { StyleSheet } from 'react-native';
-import { COLOR, FONT } from 'src/common/styles';
+import { FONT } from 'src/common/styles';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLOR.background,
   },
   header: {},
   headerWrapper: {
@@ -19,7 +18,6 @@ export default StyleSheet.create({
     textAlign: 'left',
     fontSize: 24,
     fontFamily: FONT.bold,
-    color: COLOR.textPrimary,
     paddingHorizontal: 10,
   },
 });

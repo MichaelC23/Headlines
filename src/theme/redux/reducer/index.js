@@ -8,7 +8,7 @@ import produce from 'immer';
 import { SET_THEME, defaultThemes } from 'src/theme/constants';
 
 const initialState = {
-  theme: defaultThemes.light,
+  ...defaultThemes.light,
 };
 
 /**
@@ -21,7 +21,7 @@ const initialState = {
 export default produce((draftState, action) => {
   switch (action.type) {
     case SET_THEME:
-      draftState.theme = defaultThemes[action.body.themeName];
-      break;
+      draftState = defaultThemes[action.body.themeName];
+      return draftState;
   }
 }, initialState);

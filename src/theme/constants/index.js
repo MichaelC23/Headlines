@@ -16,10 +16,18 @@ export const defaultThemeNames = {
 export const defaultThemes = {
   light: {
     name: defaultThemeNames.light,
-    palette: {},
+    palette: {
+      background: '#FFFFFF',
+      textPrimary: '#000000',
+      textSecondary: '#777777',
+    },
   },
   dark: {
     name: defaultThemeNames.dark,
-    palette: {},
+    palette: {
+      background: '#000000',
+      textPrimary: '#FFFFFF',
+      textSecondary: '#888888',
+    },
   },
 };

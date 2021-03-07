@@ -7,6 +7,10 @@ import { View, Text, SafeAreaView } from 'react-native';
 
 import EntryGroup from 'src/feed/components/EntryGroup';
 import FeedSelector from 'src/feed/components/FeedSelector';
+import {
+  useThemedBackground,
+  useThemedPrimaryText,
+} from 'src/theme/utils/useTheme';
 
 import styles from './styles';
 
@@ -17,9 +21,11 @@ import styles from './styles';
  */
 export default function FeedScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, useThemedBackground()]}>
       <View style={styles.headerWrapper}>
-        <Text style={styles.headerTitle}>headlines</Text>
+        <Text style={[styles.headerTitle, useThemedPrimaryText()]}>
+          headlines
+        </Text>
       </View>
       <FeedSelector />
       <EntryGroup />

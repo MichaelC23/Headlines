@@ -9,20 +9,18 @@ import { Appearance } from 'react-native';
 import { setTheme } from 'src/theme/redux/actions';
 
 /**
- * Fetch feed saga
- * @function fetchFeed
- * @param {Object} store redux store.
+ * Gets the system theme and initializes theme state
+ * @function initializeTheme
  */
-function* initialSaga() {
-  console.log(Appearance.getColorScheme())
+function* initializeTheme() {
   yield put(setTheme(Appearance.getColorScheme()));
 }
 
 /**
- * Feed root saga
+ * Theme root saga
  * @function rootSaga
  * @param {Object} store redux store.
  */
 export default function* rootSaga(store) {
-  yield all([initialSaga(store)]);
+  yield all([initializeTheme()]);
 }

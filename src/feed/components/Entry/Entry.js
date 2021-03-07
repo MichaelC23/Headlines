@@ -5,6 +5,11 @@
 import React from 'react';
 import { View, Text, Linking, Image, TouchableOpacity } from 'react-native';
 
+import {
+  useThemedPrimaryText,
+  useThemedSecondaryText,
+} from 'src/theme/utils/useTheme';
+
 import styles from './styles';
 
 /**
@@ -19,12 +24,16 @@ export default function Entry({ data: { author, title, link, imageSource } }) {
       <TouchableOpacity
         style={styles.authorWrapper}
         onPress={() => Linking.openURL(author.uri)}>
-        <Text style={styles.authorTitle}>{author.name}</Text>
+        <Text style={[styles.authorTitle, useThemedPrimaryText()]}>
+          {author.name}
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.contentWrappers}
         onPress={() => Linking.openURL(link)}>
-        <Text style={styles.contentTitle}>{title}</Text>
+        <Text style={[styles.contentTitle, useThemedSecondaryText()]}>
+          {title}
+        </Text>
         {imageSource ? (
           <Image style={styles.stretch} source={{ uri: imageSource }} />
         ) : null}

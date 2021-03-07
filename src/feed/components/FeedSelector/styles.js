@@ -4,7 +4,7 @@
  */
 
 import { StyleSheet } from 'react-native';
-import { FONT, COLOR } from 'src/common/styles';
+import { FONT } from 'src/common/styles';
 
 export default StyleSheet.create({
   container: {
@@ -21,10 +21,8 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontFamily: FONT.medium,
-    color: COLOR.textSecondary,
   },
   tabSelected: {
     fontFamily: FONT.bold,
-    color: COLOR.textPrimary,
   },
 });
