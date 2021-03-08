@@ -7,6 +7,7 @@ export const COLOR = {
   background: '#FFFFFF',
   textPrimary: '#000000',
   textSecondary: '#777777',
+  iosSwitchBackground: '#3E3E3E',
 };
 
 export const FONT = {

@@ -5,6 +5,10 @@
 
 // Action types
 export const SET_THEME = 'SET_THEME';
+export const TOGGLE_THEME = 'TOGGLE_THEME';
+
+// Storage entries
+export const STORAGE_ENTRY_THEME_NAME = '@THEME_NAME';
 
 // Default theme names
 export const defaultThemeNames = {
