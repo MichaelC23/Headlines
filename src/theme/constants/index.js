@@ -5,6 +5,7 @@
 
 // Action types
 export const SET_THEME = 'SET_THEME';
+export const TOGGLE_THEME = 'TOGGLE_THEME';
 
 // Default theme names
 export const defaultThemeNames = {

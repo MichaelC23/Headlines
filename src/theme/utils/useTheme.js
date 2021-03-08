@@ -36,3 +36,13 @@ export function useThemedSecondaryText() {
     color: useSelector(state => state.theme.palette.textSecondary),
   };
 }
+
+/**
+ * Verifies the theme name
+ * @function useThemeName
+ * @param {String} themeName the theme name
+ * @returns {Bool} true if it matches.
+ */
+export function useThemeName(themeName) {
+  return themeName === useSelector(state => state.theme.name);
+}
