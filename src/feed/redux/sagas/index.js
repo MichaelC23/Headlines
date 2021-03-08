@@ -14,7 +14,6 @@ import { BASE_URL, SET_CATEGORY, FETCH_FEED } from 'src/feed/constants';
  * @param {Object} store redux store.
  */
 function* fetchFeed(store) {
-  console.log('~ Feed | fetchFeed');
   yield put(setLoading(true));
   const { category } = store.getState().feed;
   const response = yield fetch(`${BASE_URL}/${category}.json`);
