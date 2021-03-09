@@ -3,7 +3,7 @@
  * @module src/feed/components/FeedHeader
  */
 import React from 'react';
-import { View, Text, Switch } from 'react-native';
+import { View, Text, Switch, StatusBar } from 'react-native';
 
 import { useThemeName } from 'src/theme/utils/useTheme';
 import { defaultThemes, defaultThemeNames } from 'src/theme/constants';
@@ -16,11 +16,13 @@ import styles from './styles';
  * @function FeedHeader
  * @param {String} textPrimary the selected category.
  * @param {Function} toggleTheme toggles the theme.
+ * @param {String} barStyle status bar theme.
  * @returns {Object} View.
  */
-export default function FeedHeader({ textPrimary, toggleTheme }) {
+export default function FeedHeader({ textPrimary, toggleTheme, barStyle }) {
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={barStyle} />
       <Text style={[styles.headerTitle, textPrimary]}>headlines</Text>
       <View style={styles.switchWrapper}>
         <Switch

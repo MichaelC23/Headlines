@@ -14,6 +14,7 @@ export default compose(
     state => ({
       textPrimary: { color: state.theme.palette.textPrimary },
       themeName: state.theme.name,
+      barStyle: state.theme.barStyle,
     }),
     { toggleTheme },
     (stateProps, dispatchProps, parentProps) => ({
