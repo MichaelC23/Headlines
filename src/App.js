@@ -6,19 +6,17 @@
  * @flow strict-local
  */
 
+import 'react-native-gesture-handler';
 import React from 'react';
-import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
-import FeedScreen from 'src/feed/components/FeedScreen';
-import store from 'src/store';
 
-const App = () => {
+import store from 'src/store';
+import RootNavigator from 'src/navigator';
+
+export default function App() {
   return (
     <Provider store={store}>
-      <StatusBar barStyle="dark-content" />
-      <FeedScreen />
+      <RootNavigator />
     </Provider>
   );
-};
-
-export default App;
+}

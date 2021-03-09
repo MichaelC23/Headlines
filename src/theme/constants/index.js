@@ -20,6 +20,7 @@ export const defaultThemeNames = {
 export const defaultThemes = {
   light: {
     name: defaultThemeNames.light,
+    barStyle: `${defaultThemeNames.dark}-content`,
     palette: {
       background: '#FFFFFF',
       textPrimary: '#000000',
@@ -28,6 +29,7 @@ export const defaultThemes = {
   },
   dark: {
     name: defaultThemeNames.dark,
+    barStyle: `${defaultThemeNames.light}-content`,
     palette: {
       background: '#000000',
       textPrimary: '#FFFFFF',
