@@ -1,21 +1,21 @@
 /**
- * FeedNavigator stack
- * @module src/feed
+ * SettingsNavigator navigator
+ * @module src/settings
  */
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import FeedScreen from 'src/feed/components/FeedScreen';
+import SettingsScreen from 'src/settings/components/SettingsScreen';
 
 const Stack = createStackNavigator();
 
-export default function FeedNavigator() {
+export default function SettingsNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="FeedScreen" component={FeedScreen} />
+      <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
     </Stack.Navigator>
   );
 }
