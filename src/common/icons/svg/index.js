@@ -3,3 +3,5 @@
  * @module src/common/icon/svg
  */
 export { default as MenuIcon } from './MenuIcon';
+export { default as HouseIcon } from './HouseIcon';
+export { default as GearIcon } from './GearIcon';

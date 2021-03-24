@@ -4,23 +4,24 @@
  */
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import FeedNavigator from 'src/feed/routes';
 import SettingsNavigator from 'src/settings/routes';
+import NavigatorTab from 'src/navigator/components/NavigatorTab';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function RootNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="FeedNavigator" component={FeedNavigator} />
-        <Stack.Screen name="SettingsNavigator" component={SettingsNavigator} />
-      </Stack.Navigator>
+      <Tab.Navigator
+        tabBar={({ navigation, state }) => (
+          <NavigatorTab navigation={navigation} state={state} />
+        )}>
+        <Tab.Screen name="FeedNavigator" component={FeedNavigator} />
+        <Tab.Screen name="SettingsNavigator" component={SettingsNavigator} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
