@@ -33,7 +33,7 @@ export default (
     height: 4,
     borderRadius: 90,
     width: 110,
-    backgroundColor: palette.textSecondary,
+    backgroundColor: palette.primary.text.secondary,
     opacity: 0.5,
   },
 });

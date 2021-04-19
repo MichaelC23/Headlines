@@ -8,6 +8,7 @@ import {
   SET_CATEGORY,
   SET_LOADING,
   FETCH_FEED,
+  SET_SEARCH_STRING,
 } from 'src/feed/constants';
 
 /**
@@ -56,7 +57,7 @@ export function setCategory(category) {
 /**
  * Set loading flag
  * @function setLoading
- * @param {Bool} value for loading.
+ * @param {Bool} loading for loading.
  * @returns {Object} set loading action.
  */
 export function setLoading(loading) {
@@ -64,6 +65,21 @@ export function setLoading(loading) {
     type: SET_LOADING,
     body: {
       loading,
+    },
+  };
+}
+
+/**
+ * Set the search string
+ * @function setLoading
+ * @param {String} value for loading.
+ * @returns {Object} set loading action.
+ */
+export function setSearchString(searchString) {
+  return {
+    type: SET_SEARCH_STRING,
+    body: {
+      searchString,
     },
   };
 }

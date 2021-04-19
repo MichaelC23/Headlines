@@ -9,6 +9,7 @@ import EntryGroup from 'src/feed/components/EntryGroup';
 import FeedSelector from 'src/feed/components/FeedSelector';
 import CommonHeader from 'src/common/components/CommonHeader';
 import CommonModal from 'src/common/components/CommonModal';
+import FeedSearch from 'src/feed/components/FeedSearch';
 import SettingsScreen from 'src/settings/components/SettingsScreen';
 import { useStyle } from 'src/theme/utils/useTheme';
 
@@ -31,6 +32,7 @@ export default function FeedScreen() {
       <CommonModal modalVisible={modalVisible} onModalVisible={setModalVisible}>
         <SettingsScreen />
       </CommonModal>
+      <FeedSearch />
       <FeedSelector />
       <EntryGroup />
     </SafeAreaView>

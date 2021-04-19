@@ -11,7 +11,7 @@ export default (
 ) => ({
   container: {
     flex: 1,
-    backgroundColor: palette.background,
+    backgroundColor: palette.primary.background,
   },
   header: {},
   headerWrapper: {

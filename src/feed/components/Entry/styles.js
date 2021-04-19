@@ -21,7 +21,7 @@ export default (
     textAlign: 'left',
     fontSize: 18,
     fontFamily: FONT.medium,
-    color: palette.textPrimary,
+    color: palette.primary.text.primary,
   },
   content: {},
   contentWrapper: {
@@ -33,7 +33,7 @@ export default (
     fontSize: 16,
     fontFamily: FONT.regular,
     paddingBottom: 10,
-    color: palette.textSecondary,
+    color: palette.primary.text.secondary,
   },
   stretch: {
     width: '100%',

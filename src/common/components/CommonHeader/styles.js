@@ -19,7 +19,7 @@ export default (
     fontSize: 24,
     fontFamily: FONT.bold,
     paddingHorizontal: 10,
-    color: palette.textPrimary,
+    color: palette.primary.text.primary,
   },
   menuWrapper: {
     paddingHorizontal: 10,
