@@ -3,10 +3,12 @@
  * @module src/feed/components/Entry
  */
 
-import { StyleSheet } from 'react-native';
 import { FONT } from 'src/common/styles';
 
-export default StyleSheet.create({
+export default (
+  { palette: defaultPalette },
+  { palette = defaultPalette } = {},
+) => ({
   container: {
     flex: 1,
   },
@@ -19,6 +21,7 @@ export default StyleSheet.create({
     textAlign: 'left',
     fontSize: 18,
     fontFamily: FONT.medium,
+    color: palette.textPrimary,
   },
   content: {},
   contentWrapper: {
@@ -30,6 +33,7 @@ export default StyleSheet.create({
     fontSize: 16,
     fontFamily: FONT.regular,
     paddingBottom: 10,
+    color: palette.textSecondary,
   },
   stretch: {
     width: '100%',

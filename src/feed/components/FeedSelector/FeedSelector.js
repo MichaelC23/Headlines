@@ -5,7 +5,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import styles from './styles';
+import { useStyle } from 'src/theme/utils/useTheme';
+
+import createStyles from './styles';
 
 /**
  * FeedSelector view component.
@@ -19,9 +21,8 @@ export default function FeedSelector({
   category,
   defaultCategories,
   setCategory,
-  textPrimary,
-  textSecondary,
 }) {
+  const styles = useStyle(createStyles);
   return (
     <View style={styles.container}>
       {defaultCategories.map((defaultCategory, key) => (
@@ -34,10 +35,7 @@ export default function FeedSelector({
           <Text
             style={[
               styles.tabText,
-              textSecondary,
-              category === defaultCategory
-                ? [styles.tabSelected, textPrimary]
-                : null,
+              category === defaultCategory ? [styles.tabSelected] : null,
             ]}>
             {defaultCategory}
           </Text>

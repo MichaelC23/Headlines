@@ -8,22 +8,29 @@ import { SafeAreaView } from 'react-native';
 import EntryGroup from 'src/feed/components/EntryGroup';
 import FeedSelector from 'src/feed/components/FeedSelector';
 import CommonHeader from 'src/common/components/CommonHeader';
-import { useThemedBackground } from 'src/theme/utils/useTheme';
+import CommonModal from 'src/common/components/CommonModal';
+import SettingsScreen from 'src/settings/components/SettingsScreen';
+import { useStyle } from 'src/theme/utils/useTheme';
 
-import styles from './styles';
+import createStyles from './styles';
 
 /**
  * FeedScreen component.
  * @function FeedScreen
  * @returns {Object} View.
  */
-export default function FeedScreen({ navigation }) {
+export default function FeedScreen() {
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const styles = useStyle(createStyles);
   return (
-    <SafeAreaView style={[styles.container, useThemedBackground()]}>
+    <SafeAreaView style={styles.container}>
       <CommonHeader
         title={'headlines'}
-        onNavigation={() => navigation.navigate('SettingsNavigator')}
+        onNavigation={() => setModalVisible(!modalVisible)}
       />
+      <CommonModal modalVisible={modalVisible} onModalVisible={setModalVisible}>
+        <SettingsScreen />
+      </CommonModal>
       <FeedSelector />
       <EntryGroup />
     </SafeAreaView>

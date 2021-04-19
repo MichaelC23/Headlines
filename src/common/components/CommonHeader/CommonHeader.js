@@ -5,9 +5,10 @@
 import React from 'react';
 import { View, Text, StatusBar, TouchableOpacity } from 'react-native';
 
+import { useStyle } from 'src/theme/utils/useTheme';
 import { MenuIcon } from 'src/common/icons/svg';
 
-import styles from './styles';
+import createStyles from './styles';
 
 /**
  * CommonHeader view component.
@@ -15,7 +16,6 @@ import styles from './styles';
  * @param {Function} onNavigation navigation action.
  * @param {String} title the title.
  * @param {String} menuColor the menu color.
- * @param {Object} textPrimary themed style.
  * @param {String} barStyle status bar theme.
  * @returns {Object} View.
  */
@@ -23,13 +23,13 @@ export default function CommonHeader({
   onNavigation,
   title,
   menuColor,
-  textPrimary,
   barStyle,
 }) {
+  const styles = useStyle(createStyles);
   return (
     <View style={styles.container}>
       <StatusBar barStyle={barStyle} />
-      <Text style={[styles.headerTitle, textPrimary]}>{title}</Text>
+      <Text style={styles.headerTitle}>{title}</Text>
       <TouchableOpacity
         onPress={() => onNavigation()}
         style={styles.menuWrapper}>

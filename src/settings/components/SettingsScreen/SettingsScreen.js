@@ -4,24 +4,21 @@
  */
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { useThemedBackground } from 'src/theme/utils/useTheme';
-import CommonHeader from 'src/common/components/CommonHeader';
 
-import styles from './styles';
+import { useStyle } from 'src/theme/utils/useTheme';
 import AppearanceSettings from 'src/settings/components/AppearanceSettings';
+
+import createStyle from './styles';
 
 /**
  * FeedScreen component.
  * @function FeedScreen
  * @returns {Object} View.
  */
-export default function SettingsScreen({ navigation }) {
+export default function SettingsScreen() {
+  const styles = useStyle(createStyle);
   return (
-    <SafeAreaView style={[styles.container, useThemedBackground()]}>
-      <CommonHeader
-        title={'settings'}
-        onNavigation={() => navigation.goBack()}
-      />
+    <SafeAreaView style={styles.container}>
       <AppearanceSettings />
     </SafeAreaView>
   );

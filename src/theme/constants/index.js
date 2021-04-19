@@ -25,6 +25,13 @@ export const defaultThemes = {
       background: '#FFFFFF',
       textPrimary: '#000000',
       textSecondary: '#777777',
+      secondary: {
+        background: '#EEEEEE',
+        text: {
+          primary: '#000000',
+          secondary: '#777777',
+        },
+      },
     },
   },
   dark: {
@@ -34,6 +41,13 @@ export const defaultThemes = {
       background: '#000000',
       textPrimary: '#FFFFFF',
       textSecondary: '#888888',
+      secondary: {
+        background: '#EEEEEE',
+        text: {
+          primary: '#000000',
+          secondary: '#777777',
+        },
+      },
     },
   },
 };

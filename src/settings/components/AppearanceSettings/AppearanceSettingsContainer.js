@@ -12,9 +12,12 @@ import AppearanceSettings from './AppearanceSettings';
 export default compose(
   connect(
     state => ({
-      textPrimary: { color: state.theme.palette.textPrimary },
-      textSecondary: { color: state.theme.palette.textSecondary },
       themeName: state.theme.name,
+      switchTrackColor: {
+        false: state.theme.palette.secondary.text.primary,
+        true: state.theme.palette.secondary.text.primary,
+      },
+      switchThumpColor: state.theme.palette.secondary.background,
     }),
     { toggleTheme },
     (stateProps, dispatchProps, parentProps) => ({

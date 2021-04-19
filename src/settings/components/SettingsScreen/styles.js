@@ -3,12 +3,15 @@
  * @module src/feed/components/FeedScreen
  */
 
-import { StyleSheet } from 'react-native';
 import { FONT } from 'src/common/styles';
 
-export default StyleSheet.create({
+export default (
+  { palette: defaultPalette },
+  { palette = defaultPalette } = {},
+) => ({
   container: {
     flex: 1,
+    backgroundColor: palette.secondary.background,
   },
   header: {},
   headerWrapper: {

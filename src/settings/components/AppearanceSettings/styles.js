@@ -3,12 +3,15 @@
  * @module src/settings/components/AppearanceSettings
  */
 
-import { StyleSheet } from 'react-native';
 import { FONT } from 'src/common/styles';
 
-export default StyleSheet.create({
+export default (
+  { palette: defaultPalette },
+  { palette = defaultPalette } = {},
+) => ({
   container: {
     flex: 1,
+    backgroundColor: palette.secondary.background,
   },
   titleWrapper: {
     paddingHorizontal: 10,
@@ -18,6 +21,7 @@ export default StyleSheet.create({
     textAlign: 'left',
     fontSize: 18,
     fontFamily: FONT.medium,
+    color: palette.secondary.text.primary,
   },
   contentWrapper: {
     paddingVertical: 10,
@@ -30,6 +34,7 @@ export default StyleSheet.create({
     textAlign: 'left',
     fontSize: 16,
     fontFamily: FONT.regular,
+    color: palette.secondary.text.secondary,
   },
   switchWrapper: {
     paddingHorizontal: 10,

@@ -3,38 +3,32 @@
  * @module src/theme/utils
  */
 import { useSelector } from 'react-redux';
+import { StyleSheet } from 'react-native';
 
 /**
- * Selects teh background colour from the state theme
- * @function useThemedBackground
+ * Generates a new style sheet with the provided parameters
+ * @function makeStyleSheet
+ * @param {Function} createStyle function tha generates style object
+ * @param {Object} theme theming object
+ * @param {Object} props further properties
  * @returns {Object} background color style object.
  */
-export function useThemedBackground() {
-  return {
-    backgroundColor: useSelector(state => state.theme.palette.background),
-  };
-}
+const makeStyleSheet = (createStyle, theme, props) =>
+  StyleSheet.create(
+    createStyle instanceof Function ? createStyle(theme, props) : createStyle,
+  );
 
 /**
- * Selects teh primary text colour from the state theme
- * @function useThemedPrimaryText
- * @returns {Object} color style object.
+ * Selects state theme and constructs new object to include the
+ * themes properties
+ * @function useStyle
+ * @param {Function} createStyle function tha generates style object
+ * @param {Object} props further properties
+ * @returns {Object} background color style object.
  */
-export function useThemedPrimaryText() {
-  return {
-    color: useSelector(state => state.theme.palette.textPrimary),
-  };
-}
-
-/**
- * Selects teh secondary text colour from the state theme
- * @function useThemedSecondaryText
- * @returns {Object} color style object.
- */
-export function useThemedSecondaryText() {
-  return {
-    color: useSelector(state => state.theme.palette.textSecondary),
-  };
+export function useStyle(createStyle, props) {
+  const { palette } = useSelector(state => state.theme);
+  return makeStyleSheet(createStyle, { palette }, props);
 }
 
 /**
