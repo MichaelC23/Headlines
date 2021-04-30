@@ -25,7 +25,7 @@ export default function EntryGroup({ entries, loading, fetchFeed }) {
   return (
     <View>
       <FlatList
-        data={entries}
+        data={loading ? [] : entries}
         renderItem={renderEntry}
         onEndReachedThreshold={0}
         keyExtractor={(entry, index) => `item-${index}`}
@@ -33,6 +33,7 @@ export default function EntryGroup({ entries, loading, fetchFeed }) {
         showsHorizontalScrollIndicator={false}
         onRefresh={() => fetchFeed()}
         refreshing={loading}
+        initialNumToRender={5}
       />
     </View>
   );

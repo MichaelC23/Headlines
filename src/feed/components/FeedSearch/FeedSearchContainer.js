@@ -5,7 +5,7 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { setSearchString } from 'src/feed/redux/actions';
+import { setSearchValue } from 'src/feed/redux/actions';
 
 import FeedSearch from './FeedSearch';
 
@@ -14,12 +14,12 @@ export default compose(
     state => ({
       iconColor: state.theme.palette.primary.text.secondary,
     }),
-    { setSearchString },
+    { setSearchValue },
     (stateProps, dispatchProps, parentProps) => ({
       ...stateProps,
       ...parentProps,
       ...dispatchProps,
-      setSearchString: value => dispatchProps.setSearchString(value),
+      setSearchValue: value => dispatchProps.setSearchValue(value),
     }),
   ),
 )(FeedSearch);

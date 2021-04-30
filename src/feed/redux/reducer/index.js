@@ -10,7 +10,7 @@ import {
   SET_CATEGORY,
   SET_LOADING,
   FETCH_FEED,
-  SET_SEARCH_STRING,
+  SET_SEARCH_VALUE,
   defaultCategories,
 } from 'src/feed/constants';
 import { convertFeedToEntries } from 'src/feed/utils/entryUtils';
@@ -19,7 +19,10 @@ const initialState = {
   entries: [],
   category: defaultCategories.HOT,
   loading: false,
-  searchString: '',
+  search: {
+    value: '',
+    error: null,
+  },
 };
 
 /**
@@ -38,8 +41,8 @@ export default produce((draftState, action) => {
     case SET_CATEGORY:
       draftState.category = action.body.category;
       break;
-    case SET_SEARCH_STRING:
-      draftState.searchString = action.body.searchString;
+    case SET_SEARCH_VALUE:
+      draftState.search.value = action.body.value;
       break;
     case SET_LOADING:
     case FETCH_FEED:

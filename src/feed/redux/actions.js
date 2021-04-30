@@ -8,7 +8,8 @@ import {
   SET_CATEGORY,
   SET_LOADING,
   FETCH_FEED,
-  SET_SEARCH_STRING,
+  SET_SEARCH_VALUE,
+  SET_SEARCH_ERROR,
 } from 'src/feed/constants';
 
 /**
@@ -70,16 +71,31 @@ export function setLoading(loading) {
 }
 
 /**
- * Set the search string
- * @function setLoading
+ * Set the search value
+ * @function setSearchValue
  * @param {String} value for loading.
- * @returns {Object} set loading action.
+ * @returns {Object} set search action.
  */
-export function setSearchString(searchString) {
+export function setSearchValue(value) {
   return {
-    type: SET_SEARCH_STRING,
+    type: SET_SEARCH_VALUE,
     body: {
-      searchString,
+      value,
+    },
+  };
+}
+
+/**
+ * Set the search error
+ * @function setSearchError
+ * @param {String} value for loading.
+ * @returns {Object} set searchs action.
+ */
+export function setSearchError(value) {
+  return {
+    type: SET_SEARCH_ERROR,
+    body: {
+      value,
     },
   };
 }

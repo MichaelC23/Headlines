@@ -3,7 +3,7 @@
  * @module src/feed/utils
  */
 
-import { FIRST, USER_URL, BASE_URL } from 'src/feed/constants';
+import { FIRST, URL_USER, URL_BASE } from 'src/feed/constants';
 
 /**
  * Feed to entries converter.
@@ -21,7 +21,7 @@ export function convertFeedToEntries(feed) {
         data.preview.images[FIRST].source.url,
       );
     }
-    entry.link = `${BASE_URL}${data.permalink}`;
+    entry.link = `${URL_BASE}${data.permalink}`;
     entry.title = data.title;
     entries.push(entry);
   });
@@ -37,7 +37,7 @@ export function convertFeedToEntries(feed) {
 function constructAuthor(author) {
   return {
     name: `u/${author}`,
-    uri: `${USER_URL}/${author}`,
+    uri: `${URL_USER}/${author}`,
   };
 }
 
@@ -53,4 +53,19 @@ function constructImageSource(imageSource) {
   let doubleEncoded = encoded.replace('amp;', '');
   let tripleEncoded = doubleEncoded.replace('amp;', '');
   return tripleEncoded;
+}
+
+/**
+ * Validates the response object structure
+ * @function validateResponseData
+ * @param {Object} response response data.
+ * @returns {Bool} return true if the objects are defined.
+ */
+export function validateResponseData(response) {
+  return (
+    response &&
+    response.data &&
+    response.data.children &&
+    response.data.children.length > 0
+  );
 }

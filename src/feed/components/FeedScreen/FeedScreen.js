@@ -25,13 +25,13 @@ export default function FeedScreen() {
   const styles = useStyle(createStyles);
   return (
     <SafeAreaView style={styles.container}>
+      <CommonModal modalVisible={modalVisible} onModalVisible={setModalVisible}>
+        <SettingsScreen />
+      </CommonModal>
       <CommonHeader
         title={'headlines'}
         onNavigation={() => setModalVisible(!modalVisible)}
       />
-      <CommonModal modalVisible={modalVisible} onModalVisible={setModalVisible}>
-        <SettingsScreen />
-      </CommonModal>
       <FeedSearch />
       <FeedSelector />
       <EntryGroup />
